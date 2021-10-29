@@ -1,0 +1,32 @@
+﻿@model List<PiattoViewModel>
+<h1>Lista dei piatti</h1>
+
+
+<a asp-controller="Piatti" asp-action="Create" class="btn btn-primary">Aggiungi Piatto</a>
+
+<table class="table table-hover table-bordered table table-striped">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome piatto</th>
+            <th>Azioni</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>
+                    <a asp-controller="Piatti" asp-action="Details" asp-route-id="@item.Id" class="btn btn-primary">Visualizza</a>
+                    <a asp-controller="Piatti" asp-action="Update" asp-route-id="@item.Id" class="btn btn-primary">Modifica</a>
+                    <a asp-controller="Piatti" asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+
+            </tr>
+        }
+    </tbody>
+
+</table>
+
